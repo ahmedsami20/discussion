@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:#0f0f1a;color:#e2d9f3;font-size:13px;line-height:1.8}
+@media print{
+  .no-print{display:none!important}
+  .slide-block{page-break-inside:avoid;page-break-after:auto}
+  body{background:#fff;color:#111}
+  .slide-block{border:1px solid #ccc!important;background:#fff!important;margin-bottom:20px}
+  .slide-header{background:#4c1d95!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+.no-print{position:fixed;top:14px;left:14px;z-index:999;background:#7c3aed;color:#fff;border:none;padding:9px 18px;border-radius:7px;cursor:pointer;font-size:13px;font-family:inherit}
+
+.page{max-width:900px;margin:0 auto;padding:28px 18px 60px}
+
+/* Main header */
+.main-header{text-align:center;padding:28px 20px;background:linear-gradient(135deg,#1a0533,#2d1060);border-radius:14px;margin-bottom:24px}
+.main-header h1{font-size:20px;font-weight:700;color:#fff;margin-bottom:5px}
+.main-header p{font-size:12px;color:#c4b5fd;margin-bottom:8px}
+.main-header .badge{display:inline-block;background:rgba(167,139,250,.2);border:1px solid rgba(167,139,250,.4);color:#c4b5fd;font-size:11px;padding:4px 14px;border-radius:20px}
+
+/* Tips */
+.tips{background:rgba(52,211,153,.07);border:1px solid rgba(52,211,153,.25);border-right:4px solid #34d399;border-radius:10px;padding:12px 16px;margin-bottom:22px;font-size:12.5px;color:rgba(255,255,255,.75)}
+.tips strong{color:#6ee7b7}
+
+/* Slide block */
+.slide-block{border:1px solid rgba(255,255,255,.1);border-radius:14px;margin-bottom:20px;overflow:hidden}
+.slide-header{background:linear-gradient(90deg,#3b0764,#4c1d95);padding:11px 18px;display:flex;align-items:center;gap:10px}
+.slide-num{background:rgba(255,255,255,.25);color:#fff;font-size:11px;font-weight:700;padding:2px 10px;border-radius:10px;white-space:nowrap}
+.slide-title-en{font-size:11px;color:rgba(255,255,255,.5);margin-right:auto;direction:ltr}
+.slide-header h2{font-size:14px;font-weight:700;color:#fff}
+.slide-body{padding:16px 18px;background:rgba(255,255,255,.03)}
+
+/* What's on slide */
+.slide-content-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:10px 14px;margin-bottom:12px;font-size:12px;color:rgba(255,255,255,.55)}
+.slide-content-box strong{color:#a78bfa;font-size:11px;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:5px}
+
+/* Speech */
+.speech{border-radius:9px;padding:11px 15px;margin-bottom:10px;position:relative}
+.speech.you{background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.28)}
+.speech.doc{background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.22)}
+.speaker{font-size:11px;font-weight:700;margin-bottom:5px}
+.speaker.you{color:#a78bfa}
+.speaker.doc{color:#f87171}
+.speech-text{font-size:13px;color:rgba(255,255,255,.82);line-height:1.85}
+.speech-text strong{color:#c4b5fd}
+
+/* Alert */
+.alert{background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.22);border-right:4px solid #fbbf24;border-radius:7px;padding:9px 13px;margin:8px 0;font-size:12px;color:rgba(255,255,255,.72)}
+.alert strong{color:#fcd34d}
+
+/* Key points */
+.kp{display:flex;align-items:flex-start;gap:8px;margin-bottom:7px}
+.kp .d{min-width:7px;height:7px;border-radius:50%;background:#a78bfa;margin-top:5px;flex-shrink:0}
+.kp p{font-size:12.5px;color:rgba(255,255,255,.78);line-height:1.7}
+.kp p strong{color:#e2d9f3}
+
+/* Tags */
+.tag{display:inline-block;background:rgba(167,139,250,.15);border:1px solid rgba(167,139,250,.3);color:#c4b5fd;font-size:10px;padding:2px 8px;border-radius:10px;margin:2px}
+.tag.g{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.3);color:#6ee7b7}
+.tag.r{background:rgba(239,68,68,.1);border-color:rgba(239,68,68,.3);color:#fca5a5}
+
+/* Divider */
+hr{border:none;border-top:1px solid rgba(255,255,255,.06);margin:12px 0}
+
+/* Table */
+.t{width:100%;border-collapse:collapse;font-size:11.5px;margin:8px 0}
+.t th{background:rgba(167,139,250,.18);color:#c4b5fd;padding:7px 10px;text-align:right;border-bottom:1px solid rgba(255,255,255,.07)}
+.t td{padding:6px 10px;border-bottom:1px solid rgba(255,255,255,.04);color:rgba(255,255,255,.7);vertical-align:top}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<div class="main-header">
+  <h1>🎤 سيناريو المناقشة — مرتبط بالعرض التقديمي</h1>
+  <p>كل سلايد + إيه اللي تقوله عنه + الأسئلة المتوقعة</p>
+  <div class="badge">Ahmed Sami Tawfik Barakat · 23512446 · My Clinic</div>
+</div>
+
+<div class="tips">
+  <strong>💡 إزاي تستخدم الورقة دي:</strong> كل بلوك = سلايد واحدة. فيه "محتوى السلايد" + "إيه اللي تقوله" + "الأسئلة المتوقعة". متحفظش كلام — افهم الفكرة وتكلم بطبيعية.
+</div>
+
+<!-- ═══ SLIDE 1: COVER ═══ -->
+<div class="slide-block">
+  <div class="slide-header">
+    <span class="slide-num">Slide 1</span>
+    <h2>Cover — الغلاف</h2>
+    <span class="slide-title-en">Smart Doctor Appointment Booking System</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-content-box"><strong>على السلايد</strong>لوجو My Clinic · اسم المشروع · اسمك · رقمك · اسم المشرفة · اسم الكلية</div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 إيه اللي تقوله:</div>
+      <div class="speech-text">بسم الله الرحمن الرحيم. صباح الخير يا دكتور.<br>مشروعي اسمه <strong>My Clinic</strong> — نظام ذكي لحجز مواعيد الأطباء، صممته للسوق المصري والعربي.<br>هقدم المشروع في نقاط سريعة وأنا متاح لأي أسئلة.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 2: INTRODUCTION ═══ -->
+<div class="slide-block">
+  <div class="slide-header">
+    <span class="slide-num">Slide 2</span>
+    <h2>Introduction — المقدمة</h2>
+    <span class="slide-title-en">Background & Motivation</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-content-box"><strong>على السلايد</strong>Context · Digital Gap · Opportunity</div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 إيه اللي تقوله:</div>
+      <div class="speech-text">في مصر، الناس لسه بتحجز مواعيد بالتليفون أو بالحضور الشخصي. المنصات الموجودة زي Vezeeta وShifaa بتحل جزء بسيط من المشكلة بس. كمان فيه غياب لأي منصة عربية بتخدم المريض والدكتور في نفس الوقت بشكل متكامل.<br>My Clinic جه يحل الفجوة دي.</div>
+    </div>
+    <div class="speech doc">
+      <div class="speaker doc">👨‍🏫 سؤال محتمل:</div>
+      <div class="speech-text">"ليه مصر تحديداً؟ مش كل العالم بيعاني من نفس المشكلة؟"</div>
+    </div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 ردك:</div>
+      <div class="speech-text">صح إن المشكلة عالمية، لكن مصر عندها تحديات خاصة: 100+ مليون نسمة، ضغط ضخم على المنظومة الصحية، وغياب منصات العربية  . الحل العالمي موجود لكن مش مناسب للسياق المصري والعربي.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 3: PROBLEM ═══ -->
+<div class="slide-block">
+  <div class="slide-header">
+    <span class="slide-num">Slide 3</span>
+    <h2>Problem Statement — المشكلة</h2>
+    <span class="slide-title-en">The Problem</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-content-box"><strong>على السلايد</strong>Patient Pain Points · Platform Limitations</div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 إيه اللي تقوله:</div>
+      <div class="speech-text">المشكلة على مستويين:<br><br>
+      <strong>من ناحية المريض:</strong> مفيش تذكير بالمواعيد، مفيش سجل طبي رقمي، مفيش طلب تمريض أونلاين، وانتظار طويل.<br><br>
+      <strong>من ناحية المنصات الموجودة:</strong> Vezeeta مدفوعة جزئياً، Shifaa مفهاش داشبورد حقيقي للدكتور، وكلهم مش بيدعموا العربي RTL بشكل كامل ومفيش عندهم مساعدة ذكاء اصطناعي.</div>
+    </div>
+    <div class="speech doc">
+      <div class="speaker doc">👨‍🏫 سؤال محتمل:</div>
+      <div class="speech-text">"طب إيه الـ RTL وليه مهم؟"</div>
+    </div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 ردك:</div>
+      <div class="speech-text">RTL يعني Right-to-Left — العربي بيتكتب من اليمين للشمال. مش بس تغيير اتجاه النص، ده محتاج تغيير كامل في شكل الصفحة: القوائم، الأيقونات، الـ layout كله بيتعكس. معظم المنصات بتغير النص بس وتسيب الـ layout على اليسار، وده بيعمل تجربة مبتورة للمستخدم العربي.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 4: OBJECTIVES ═══ -->
+<div class="slide-block">
+  <div class="slide-header">
+    <span class="slide-num">Slide 4</span>
+    <h2>Objectives —  الأهداف ( بيعالجها إزاي؟)</h2>
+    <span class="slide-title-en">Project Objectives</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-content-box"><strong>على السلايد</strong>11 هدف محدد للمشروع</div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 إيه اللي تقوله:</div>
+      <div class="speech-text">حددت 11 هدف رئيسي للمشروع، وقدرت أحققهم كلهم. الأهداف بتغطي: تطبيق ويب ثنائي اللغة، نظام أمان JWT، بحث عن أطباء، حجز وتعديل وإلغاء مواعيد، تذكير بالمواعيد، داشبورد للدكتور، سجل طبي رقمي، طلب تمريض، شات بوت AI، backend قابل للتوسع، ووضع ليلي/نهاري.</div>
+
+
+    <div class="speech">
+      <div class="speaker you">🧑‍💻 ردك:</div>
+      <div class="speech-text">
+        My Clinic بيقدم حلين في نفس الوقت — للمريض وللدكتور:
+      </div>
+    </div>
+
+    <div class="section-label">جانب المريض</div>
+    <div class="key-point"><span class="dot"></span><p><strong>التسجيل وتسجيل الدخول</strong> — بأمان باستخدام JWT وتشفير كلمة المرور بـ bcrypt</p></div>
+    <div class="key-point"><span class="dot"></span><p><strong>البحث عن دكتور</strong> — بالتخصص أو المدينة أو الاسم</p></div>
+    <div class="key-point"><span class="dot"></span><p><strong>حجز وتعديل وإلغاء مواعيد</strong> — بشكل كامل أونلاين</p></div>
+    <div class="key-point"><span class="dot"></span><p><strong>تذكير بالمواعيد</strong> — بيظهر تلقائياً كل ما المريض يفتح الموقع</p></div>
+    <div class="key-point"><span class="dot"></span><p><strong>السجل الطبي الرقمي</strong> — المريض يحتفظ بتاريخه الطبي كامل</p></div>
+    <div class="key-point"><span class="dot"></span><p><strong>طلب خدمة تمريض</strong> — من داخل المنصة مباشرة</p></div>
+    <div class="key-point"><span class="dot"></span><p><strong>شات بوت AI</strong> — يساعد في التنقل والأسئلة الصحية العامة</p></div>
+
+    <hr class="divider">
+
+    <div class="section-label">جانب الدكتور</div>
+    <div class="key-point"><span class="dot"></span><p><strong>داشبورد خاص</strong> — بيوري مواعيد النهارده، المواعيد القادمة، عدد المرضى، والتقييم</p></div>
+    <div class="key-point"><span class="dot"></span><p><strong>إدارة المواعيد</strong> — يقدر يشوف ويأكد ويتابع</p></div>
+    <div class="key-point"><span class="dot"></span><p><strong>الاطلاع على السجل الطبي</strong> — لكل مريض بشكل منظم</p></div>
+    <div class="key-point"><span class="dot"></span><p><strong>إدارة البروفايل</strong> — التخصص، المدينة، أوقات العمل</p></div>
+</div>
+
+    <div class="speech doc">
+      <div class="speaker doc">👨‍🏫 سؤال محتمل:</div>
+      <div class="speech-text">"إيه أهم هدف في نظرك؟"</div>
+    </div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 ردك:</div>
+      <div class="speech-text">في رأيي الأهم هو <strong>الوصول المجاني مع الدعم الكامل للعربية</strong> — لأن ده بيخدم أكبر شريحة من المستخدمين اللي المنصات التانية بتتجاهلهم. بعديه بيجي الـ AI Chatbot لأنه بيقلل الـ friction لأول مرة يستخدم الموقع.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 5: RELATED WORK ═══ -->
+<div class="slide-block">
+  <div class="slide-header">
+    <span class="slide-num">Slide 5</span>
+    <h2>Related Work — الأعمال المشابهة</h2>
+    <span class="slide-title-en">Existing Solutions & Gaps</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-content-box"><strong>على السلايد</strong>جدول مقارنة: Vezeeta · Shifaa · Zocdoc · My Clinic</div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 إيه اللي تقوله:</div>
+      <div class="speech-text">الجدول ده بيوضح الفرق بين المنصات الموجودة وـ My Clinic على 8 محاور رئيسية. My Clinic هو الوحيد اللي بيوفر كل الميزات دي في نفس الوقت — مجاناً وبالعربي الكامل.</div>
+    </div>
+    <table class="t">
+      <thead><tr><th>الميزة</th><th>Vezeeta</th><th>Shifaa</th><th>Zocdoc</th><th>My Clinic</th></tr></thead>
+      <tbody>
+        <tr><td>وصول مجاني</td><td><span class="tag r">جزئي</span></td><td><span class="tag r">جزئي</span></td><td><span class="tag r">لا</span></td><td><span class="tag g">✓</span></td></tr>
+        <tr><td>عربي RTL كامل</td><td><span class="tag r">جزئي</span></td><td><span class="tag r">جزئي</span></td><td><span class="tag r">لا</span></td><td><span class="tag g">✓</span></td></tr>
+        <tr><td>سجل طبي</td><td><span class="tag r">لا</span></td><td><span class="tag r">لا</span></td><td><span class="tag r">لا</span></td><td><span class="tag g">✓</span></td></tr>
+        <tr><td>AI Chatbot</td><td><span class="tag r">لا</span></td><td><span class="tag r">لا</span></td><td><span class="tag r">لا</span></td><td><span class="tag g">✓</span></td></tr>
+        <tr><td>طلب تمريض</td><td><span class="tag r">لا</span></td><td><span class="tag r">لا</span></td><td><span class="tag r">لا</span></td><td><span class="tag g">✓</span></td></tr>
+      </tbody>
+    </table>
+    <div class="speech doc">
+      <div class="speaker doc">👨‍🏫 سؤال محتمل:</div>
+      <div class="speech-text">"إيه رأيك في Zocdoc؟ مش هو الأفضل؟"</div>
+    </div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 ردك:</div>
+      <div class="speech-text">Zocdoc منصة ممتازة في السياق الأمريكي — إنجليزية بالكامل، مرتبطة بنظام التأمين الصحي الأمريكي، ومدفوعة للأطباء. مش قابل للتطبيق في مصر خالص. My Clinic مصمم للبيئة المصرية والعربية تحديداً.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 6: SYSTEM OVERVIEW ═══ -->
+<div class="slide-block">
+  <div class="slide-header">
+    <span class="slide-num">Slide 6</span>
+    <h2>System Overview — نظرة عامة</h2>
+    <span class="slide-title-en">What Does My Clinic Do?</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-content-box"><strong>على السلايد</strong>Patient Side · Doctor Side — قائمة Features</div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 إيه اللي تقوله:</div>
+      <div class="speech-text">المنصة بتخدم دورين رئيسيين:<br><br>
+      <strong>المريض:</strong> يسجل، يبحث عن دكتور بالتخصص أو المدينة، يحجز ويعدل ويلغي، يتذكر مواعيده، يدير سجله الطبي، يطلب خدمة تمريض، ويتكلم مع AI.<br><br>
+      <strong>الدكتور:</strong> لوجو إن خاص، داشبورد بإحصائيات، إدارة المواعيد والسجلات الطبية، وإدارة البروفايل.</div>
+    </div>
+    <div class="speech doc">
+      <div class="speaker doc">👨‍🏫 سؤال محتمل:</div>
+      <div class="speech-text">"إيه الفرق بين الـ Session Reminder وأي Notification تانية؟"</div>
+    </div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 ردك:</div>
+      <div class="speech-text">الـ Session Reminder بيشتغل من غير ما أحتاج email أو SMS — كل ما المريض يفتح الموقع ويكون logged in، لو عنده ميعاد قريب بيظهر له إشعار تلقائي. ده بيتجنب تكلفة خدمات الـ messaging الخارجية وبيضمن إن التذكير يوصل في اللحظة اللي المريض بيكون على المنصة.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 7: ARCHITECTURE ═══ -->
+<div class="slide-block">
+  <div class="slide-header">
+    <span class="slide-num">Slide 7</span>
+    <h2>System Architecture — معمارية النظام</h2>
+    <span class="slide-title-en">Architecture & Data Flow</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-content-box"><strong>على السلايد</strong>Frontend ⇆ Backend API ⇆ Database — Three-Tier Architecture</div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 إيه اللي تقوله:</div>
+      <div class="speech-text">المشروع مبني على 3 طبقات منفصلة — الـ Decoupled Architecture:<br><br>
+      <strong>Frontend (Vue.js 3):</strong> SPA بيتكلم مع الـ Backend عن طريق HTTP/JSON<br>
+      <strong>Backend (Node.js + Express):</strong> RESTful API على نمط MVC — كل request بيعدي على JWT Middleware<br>
+      <strong>Database (MongoDB):</strong> الـ Mongoose بيتعامل معاها كـ ODM<br><br>
+      الميزة إن كل طبقة ممكن تتطور أو تتوسع بشكل مستقل.</div>
+    
+      <div class="key-point"><span class="dot"></span><p><strong>Frontend (Vue.js 3):</strong> SPA — Single Page Application — بستخدم Composition API، Vue Router للتنقل بين الصفحات، و vue-i18n للغتين عربي وإنجليزي مع دعم RTL كامل. Build tool بستخدم Vite.</p></div>
+    <div class="key-point"><span class="dot"></span><p><strong>Backend (Node.js + Express.js):</strong> RESTful API على نمط MVC — Models و Controllers و Routes منفصلين. كل endpoint محمي بـ JWT Middleware، والباسوردات متشفرة بـ bcrypt.</p></div>
+    <div class="key-point"><span class="dot"></span><p><strong>Database (MongoDB + Mongoose):</strong> قاعدة بيانات NoSQL. عندي 5 collections رئيسية: patients, doctors, appointments, medical_history, nursing_requests.</p></div>
+    
+    </div>
+    <div class="speech doc">
+      <div class="speaker doc">👨‍🏫 سؤال محتمل:</div>
+      <div class="speech-text">"إيه هو الـ MVC؟ وكيف طبقته؟"</div>
+    </div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 ردك:</div>
+      <div class="speech-text"><strong>M — Model:</strong> الـ Mongoose Schema — بيعرف شكل البيانات (مثلاً: Appointment Schema)<br>
+      <strong>V — View:</strong> الـ Vue.js Frontend — اللي المستخدم بيشوفه<br>
+      <strong>C — Controller:</strong> الـ Express Route Handler — بيستقبل الـ Request، يتعامل مع الـ Model، ويرجع الـ Response<br><br>
+      الفايدة: كل جزء ممكن يتعدل من غير ما يأثر على التاني.</div>
+    </div>
+    <div class="speech doc">
+      <div class="speaker doc">👨‍🏫 سؤال محتمل:</div>
+      <div class="speech-text">"ليه اخترت MongoDB بدل MySQL مثلاً؟"</div>
+    </div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 ردك:</div>
+      <div class="speech-text">لأن البيانات الطبية مش دايماً ليها schema ثابت — السجل الطبي لكل مريض ممكن يختلف في تفاصيله. MongoDB بيديني مرونة في الشكل، أسرع في الـ development، وبيتكامل أحسن مع Node.js ecosystem. كمان أسهل في الـ horizontal scaling لو عدد المستخدمين كبر.</div>
+    </div>
+    <div class="alert">
+      <strong>⚡ لو سألك:</strong> "إيه هو الـ JWT؟"<br>
+      ردك: "JWT أو JSON Web Token ده Token بيتبعت مع كل request بعد تسجيل الدخول. الـ Server بيولده وبيوقعه بـ secret key. كل request جاي، الـ middleware بيتحقق من الـ Token ده — لو صح، يكمل، لو غلط أو مش موجود، يرجع 401 Unauthorized."
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 8: TECHNOLOGIES ═══ -->
+<div class="slide-block">
+  <div class="slide-header">
+    <span class="slide-num">Slide 8</span>
+    <h2>Technologies Used — التقنيات المستخدمة</h2>
+    <span class="slide-title-en">Tech Stack</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-content-box"><strong>على السلايد</strong>Vue.js 3 · Vue Router · vue-i18n · Node.js · Express · MongoDB · Mongoose · JWT · bcrypt · Vite · Git · Postman · AI API · VS Code</div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 إيه اللي تقوله:</div>
+      <div class="speech-text">الـ Stack بتاعي مقسم لـ 5 مجموعات:<br>
+      <strong>Frontend:</strong> Vue.js 3 + Vue Router + vue-i18n + Vite<br>
+      <strong>Backend:</strong> Node.js 18 + Express.js 4<br>
+      <strong>Database:</strong> MongoDB 6 + Mongoose 7<br>
+      <strong>Auth/Security:</strong> JWT + bcrypt<br>
+      <strong>Tooling:</strong> Git/GitHub + Postman + VS Code + AI Chatbot API</div>
+    </div>
+    <div class="speech doc">
+      <div class="speaker doc">👨‍🏫 سؤال محتمل:</div>
+      <div class="speech-text">"إيه هو الـ JWT وازاي بيشتغل؟"</div>
+    </div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 ردك:</div>
+      <div class="speech-text">JWT أو JSON Web Token ده token مشفر بيتولد بعد تسجيل الدخول. بيتكون من 3 أجزاء: Header + Payload (بيانات المستخدم) + Signature.<br>كل request بعد كده بيتبعت معاه الـ Token في الـ Header. الـ Middleware في الـ Backend بيتحقق منه — لو صح يكمل، لو غلط أو منتهي الصلاحية بيرجع 401 Unauthorized.</div>
+    </div>
+    <div class="speech doc">
+      <div class="speaker doc">👨‍🏫 سؤال محتمل:</div>
+      <div class="speech-text">"إيه الفرق بين JWT وSession؟"</div>
+    </div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 ردك:</div>
+      <div class="speech-text">الـ Session بيتخزن على الـ Server — يعني لو عندي ملايين مستخدمين، الـ Server هيحتفظ بملايين Session، ده عبء كبير. الـ JWT Stateless — الـ Server مش بيحتفظ بأي حاجة، كل المعلومات جوا الـ Token نفسه. ده بيخليه أسهل في الـ Scaling.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 9: DATA MODEL ═══ -->
+<div class="slide-block">
+  <div class="slide-header">
+    <span class="slide-num">Slide 9</span>
+    <h2>Data Model — نموذج البيانات</h2>
+    <span class="slide-title-en">Database Design</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-content-box"><strong>على السلايد</strong>6 Collections: Patient · Doctor · Appointment · Medical History · Nursing Request · Security Layer</div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 إيه اللي تقوله:</div>
+      <div class="speech-text">الـ Database عندي 5 Collections رئيسية في MongoDB:<br><br>
+      <strong>patients:</strong> بيانات المريض + الباسورد متشفر بـ bcrypt<br>
+      <strong>doctors:</strong> التخصص، المدينة، التقييم، أوقات الإتاحة<br>
+      <strong>appointments:</strong> booking ID، مرجع للمريض، مرجع للدكتور، التاريخ، الوقت، الحالة<br>
+      <strong>medical_history:</strong> التشخيص، الأدوية، الملاحظات<br>
+      <strong>nursing_requests:</strong> نوع الخدمة، العنوان، الحالة</div>
+    </div>
+    <div class="speech doc">
+      <div class="speaker doc">👨‍🏫 سؤال محتمل:</div>
+      <div class="speech-text">"إيه هو الـ Mongoose؟"</div>
+    </div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 ردك:</div>
+      <div class="speech-text">Mongoose هو ODM — Object Document Mapper. بيسمحلي أعرف الـ Schema (شكل البيانات) بـ JavaScript objects، ويتحقق من البيانات قبل ما تتحفظ، ويحول الـ MongoDB Documents لـ JavaScript Objects بشكل تلقائي. يعني بدله كنت هكتب MongoDB queries raw وده أصعب وأبطأ في التطوير.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 10: METHODOLOGY ═══ -->
+<div class="slide-block">
+  <div class="slide-header">
+    <span class="slide-num">Slide 10</span>
+    <h2>Methodology — المنهجية</h2>
+    <span class="slide-title-en">Development Approach</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-content-box"><strong>على السلايد</strong>Agile · MVC · SPA · Decoupled · Git Feature-Branch</div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 إيه اللي تقوله:</div>
+      <div class="speech-text">اتبعت منهجية Agile على 4 Sprints: Requirements → Design → Implementation → Testing.<br>الاختيار ده خلاني أقدر أعدل وأحسن بشكل مستمر بناءً على نتائج الاختبارات. بدل ما أكمل المشروع كله وأكتشف إن فيه مشكلة في الآخر.</div>
+    </div>
+    <div class="speech doc">
+      <div class="speaker doc">👨‍🏫 سؤال محتمل:</div>
+      <div class="speech-text">"إيه الفرق بين Agile وـ Waterfall؟"</div>
+    </div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 ردك:</div>
+      <div class="speech-text">Waterfall ده نهج خطي: تخلص كل مرحلة قبل ما تبدأ التالية — Requirements ثم Design ثم Implementation ثم Testing. مشكلته إنك لو اكتشفت مشكلة في الـ Testing، هترجع للأول. Agile بيخليك تشتغل في دوائر — كل Sprint بتعمل فيه جزء صغير كامل وبتتأكد منه قبل ما تكمل. ده أنسب لمشاريع محتاجة flexibility.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 11: IMPLEMENTATION ═══ -->
+<div class="slide-block">
+  <div class="slide-header">
+    <span class="slide-num">Slide 11</span>
+    <h2>Implementation — التنفيذ</h2>
+    <span class="slide-title-en">Key Features Implemented</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-content-box"><strong>على السلايد</strong>6 Features: Bilingual · Auth · Appointment Flow · AI Chatbot · Session Reminder · Dark Mode</div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 إيه اللي تقوله:</div>
+      <div class="speech-text">نفذت 6 Features رئيسية:<br>
+      1. <strong>Bilingual RTL/LTR</strong> عن طريق vue-i18n — تغيير كامل للـ UI<br>
+      2. <strong>JWT + bcrypt Auth</strong> مع Role-based Access<br>
+      3. <strong>Appointment Flow</strong> كامل: حجز، تعديل، إلغاء، Booking ID<br>
+      4. <strong>AI Chatbot</strong> للمساعدة والأسئلة<br>
+      5. <strong>Session Reminder</strong> — تذكير تلقائي عند الدخول<br>
+      6. <strong>Dark/Light Mode</strong> على كل الصفحات مع WCAG AA contrast</div>
+    </div>
+    <div class="speech doc">
+      <div class="speaker doc">👨‍🏫 سؤال محتمل:</div>
+      <div class="speech-text">"إيه هو الـ bcrypt وليه مش بتخزن الباسورد عادي؟"</div>
+    </div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 ردك:</div>
+      <div class="speech-text">bcrypt هو hashing algorithm بطيء عن قصد — بياخد الباسورد ويحوله لـ hash مش قابل للعكس. لو الـ Database اتسرق، الهاكر هيلاقي hashes مش passwords. كمان bcrypt بيضيف "salt" — يعني حتى لو اتنين عندهم نفس الباسورد، الـ hash هيكون مختلف لكل واحد.</div>
+    </div>
+    <div class="speech doc">
+      <div class="speaker doc">👨‍🏫 سؤال محتمل:</div>
+      <div class="speech-text">"إيه هو الـ WCAG؟"</div>
+    </div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 ردك:</div>
+      <div class="speech-text">WCAG هو Web Content Accessibility Guidelines — معيار دولي لإمكانية الوصول للويب. الـ AA Level بيشترط نسبة تباين معينة بين النص والخلفية عشان الناس ذوي الإعاقات البصرية يقدروا يقروا. تأكدت إن التباين مظبوط في الوضع الليلي والنهاري على كل الصفحات.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 12: RESULTS ═══ -->
+<div class="slide-block">
+  <div class="slide-header">
+    <span class="slide-num">Slide 12</span>
+    <h2>Results & Evaluation — النتائج</h2>
+    <span class="slide-title-en">Results & Evaluation</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-content-box"><strong>على السلايد</strong>11/11 أهداف · 10/10 Test Cases · ~280ms · 4 Browsers · 5 UAT · 2 Languages</div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 إيه اللي تقوله:</div>
+      <div class="speech-text">النتائج كانت:<br>
+      ✅ <strong>11/11</strong> هدف اتحقق بالكامل<br>
+      ✅ <strong>10/10</strong> Test Cases نجحوا<br>
+      ✅ متوسط Response Time <strong>~280ms</strong> — أقل بكتير من الحد المسموح 2000ms<br>
+      ✅ اشتغل على <strong>4 متصفحات</strong>: Chrome, Firefox, Edge, Safari<br>
+      ✅ <strong>5 مشاركين</strong> في UAT: 3 مرضى + 2 دكاترة — كل اللي كلموا قالوا الواجهة سهلة</div>
+    </div>
+    <div class="speech doc">
+      <div class="speaker doc">👨‍🏫 سؤال محتمل:</div>
+      <div class="speech-text">"إيه هو الـ UAT؟"</div>
+    </div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 ردك:</div>
+      <div class="speech-text">UAT = User Acceptance Testing. يعني بعد ما أتأكد إن الكود شغال صح (Unit + Integration Testing)، بجيب ناس حقيقيين يستخدموا النظام ويعملوا scenarios كاملة — تسجيل، حجز، إلغاء، داشبورد — وبشوف هل بيقدروا يعملوا كل حاجة من غير مشاكل أو لأ. ده بيكشف مشاكل الـ UX اللي الاختبارات التقنية مش بتكشفها.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 13: SCREENSHOTS ═══ -->
+<div class="slide-block">
+  <div class="slide-header">
+    <span class="slide-num">Slide 13</span>
+    <h2>Screenshots — لقطات الشاشة</h2>
+    <span class="slide-title-en">System Screenshots</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-content-box"><strong>على السلايد</strong>5 صور: Home Page · Doctor Dashboard · Book Appointment · Appointment Details · Doctor Login</div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 إيه اللي تقوله:</div>
+      <div class="speech-text">السلايد دي بتوضح الـ UI الفعلي للمشروع.<br><br>
+      <strong>الـ Home Page</strong>: بار بحث + تخصصات الأطباء + 3 Feature cards<br>
+      <strong>الـ Doctor Dashboard</strong>: إحصائيات لحظية + Tabs للمواعيد<br>
+      <strong>Book Appointment</strong>: Form بيانات + Time Slots<br>
+      <strong>Appointment Details</strong>: Modal بكل تفاصيل الميعاد + Booking ID<br>
+      <strong>Doctor Login</strong>: فصل كامل بين login المريض والدكتور</div>
+    </div>
+    <div class="speech doc">
+      <div class="speaker doc">👨‍🏫 سؤال محتمل:</div>
+      <div class="speech-text">"ليه الـ Doctor Login منفصل عن الـ Patient Login؟"</div>
+    </div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 ردك:</div>
+      <div class="speech-text">عشان الـ Role-based Access Control. المريض والدكتور عندهم permissions مختلفة تماماً — المريض يحجز، الدكتور يدير. الفصل ده بيمنع أي confusion ويخلي كل واحد يوصل بس للـ endpoints اللي ليه. كمان من ناحية UX، الدكتور محتاج flow مختلف عن المريض.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 14: CONCLUSION ═══ -->
+<div class="slide-block">
+  <div class="slide-header">
+    <span class="slide-num">Slide 14</span>
+    <h2>Conclusion — الخلاصة</h2>
+    <span class="slide-title-en">What Was Achieved</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-content-box"><strong>على السلايد</strong>Summary · Key Takeaways</div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 إيه اللي تقوله:</div>
+      <div class="speech-text">My Clinic هو الوحيد في السوق المصري اللي بيجمع:<br>
+      ✅ وصول مجاني كامل<br>
+      ✅ دعم عربي RTL حقيقي<br>
+      ✅ سجل طبي رقمي<br>
+      ✅ طلب تمريض<br>
+      ✅ شات بوت AI<br>
+      — كلهم في منصة واحدة.<br><br>
+      أهم درس تعلمته: إن الـ Full RTL مش بس تغيير اتجاه النص — محتاج تفكير كامل في الـ UI. وإن الـ Decoupled Architecture خلت التطوير أسرع وأسهل في الـ Testing.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 15: FUTURE WORK ═══ -->
+<div class="slide-block">
+  <div class="slide-header">
+    <span class="slide-num">Slide 15</span>
+    <h2>Future Work — التطوير المستقبلي</h2>
+    <span class="slide-title-en">Future Enhancements</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-content-box"><strong>على السلايد</strong>Telemedicine · PayMob · Push Notifications · Flutter App · Analytics · Rating</div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 إيه اللي تقوله:</div>
+      <div class="speech-text">في 6 تطويرات مخطط ليها مستقبلاً:<br>
+      <strong>1. Telemedicine</strong> — فيديو كول بـ WebRTC<br>
+      <strong>2. PayMob</strong> — دفع إلكتروني مصري<br>
+      <strong>3. Push Notifications</strong> — WebSockets بدل Session Reminder<br>
+      <strong>4. Mobile App</strong> — Flutter لـ Android وiOS<br>
+      <strong>5. Analytics Dashboard</strong> — للدكتور لتحليل بياناته<br>
+      <strong>6. Rating System</strong> — المريض يقيّم الدكتور بتفاصيل</div>
+    </div>
+    <div class="speech doc">
+      <div class="speaker doc">👨‍🏫 سؤال محتمل:</div>
+      <div class="speech-text">"ليه مفعلتش الدفع الإلكتروني من الأول؟"</div>
+    </div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 ردك:</div>
+      <div class="speech-text">قرار واعي — الدفع الإلكتروني محتاج تسجيل في payment gateway وإجراءات قانونية وأمان إضافي. في الـ scope بتاع مشروع التخرج، ركزت على الـ core functionality الأساسية اللي بتثبت قيمة المنصة. الدفع ممكن يتضاف في مرحلة التطوير بعد التخرج بشكل منفصل.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 16: TIMELINE ═══ -->
+<div class="slide-block">
+  <div class="slide-header">
+    <span class="slide-num">Slide 16</span>
+    <h2>Timeline — الجدول الزمني</h2>
+    <span class="slide-title-en">Project Timeline & Milestones</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-content-box"><strong>على السلايد</strong>5 مراحل: Requirements → Design → Development → Testing → Deployment — كلهم ✓ Complete</div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 إيه اللي تقوله:</div>
+      <div class="speech-text">المشروع اتنفذ على 5 مراحل كلهم اكتملوا:<br>
+      1. <strong>Requirements & Analysis</strong> — تحديد المتطلبات ومقارنة المنصات<br>
+      2. <strong>System Design</strong> — ERD وAPI Design والمخططات<br>
+      3. <strong>Development</strong> — Frontend + Backend + AI + Bilingual + Dark Mode<br>
+      4. <strong>Integration & Testing</strong> — Postman + Cross-browser + UAT<br>
+      5. <strong>Deployment & Documentation</strong> — README + Git + التقرير والعرض</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SLIDE 17: THANK YOU ═══ -->
+<div class="slide-block">
+  <div class="slide-header">
+    <span class="slide-num">Slide 17</span>
+    <h2>Thank You / Questions — شكراً</h2>
+    <span class="slide-title-en">Closing Slide</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-content-box"><strong>على السلايد</strong>لوجو My Clinic · اسمك · المشرفة · الـ Stack</div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 إيه اللي تقوله:</div>
+      <div class="speech-text">شكراً يا دكتور. My Clinic بيثبت إن ممكن نبني منصة صحية رقمية حقيقية مجانية وعربية بالكامل.<br>أنا جاهز لأي أسئلة.</div>
+    </div>
+    <div class="speech doc">
+      <div class="speaker doc">👨‍🏫 سؤال ختامي شائع:</div>
+      <div class="speech-text">"لو بدأت المشروع من تاني، هتغير إيه؟"</div>
+    </div>
+    <div class="speech you">
+      <div class="speaker you">🧑‍💻 ردك:</div>
+      <div class="speech-text">هكتب Unit Tests من أول يوم بدل ما أضيفهم في الآخر — ده وفر وقت كتير في الـ debugging. وكمان كنت هستخدم TypeScript بدل JavaScript عادي عشان يكشف أخطاء الـ types بدري أكتر.</div>
+    </div>
+  </div>
+</div>
+
+</div>
+</body>
+</html>

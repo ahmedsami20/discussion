@@ -269,21 +269,19 @@ hr{border:none;border-top:1px solid rgba(255,255,255,.06);margin:12px 0}
     <h2>System Architecture — معمارية النظام</h2>
     <span class="slide-title-en">Architecture & Data Flow</span>
   </div>
-  <div class="slide-body">
-    <div class="slide-content-box"><strong>على السلايد</strong>Frontend ⇆ Backend API ⇆ Database — Three-Tier Architecture</div>
-    <div class="speech you">
+  <div class="speech you">
       <div class="speaker you">🧑‍💻 إيه اللي تقوله:</div>
       <div class="speech-text">المشروع مبني على 3 طبقات منفصلة — الـ Decoupled Architecture:<br><br>
-      <strong>Frontend (Vue.js 3):</strong> SPA بيتكلم مع الـ Backend عن طريق HTTP/JSON<br>
-      <strong>Backend (Node.js + Express):</strong> RESTful API على نمط MVC — كل request بيعدي على JWT Middleware<br>
-      <strong>Database (MongoDB):</strong> الـ Mongoose بيتعامل معاها كـ ODM<br><br>
-      الميزة إن كل طبقة ممكن تتطور أو تتوسع بشكل مستقل.</div>
-    
-      <div class="key-point"><span class="dot"></span><p><strong>Frontend (Vue.js 3):</strong> SPA — Single Page Application — بستخدم Composition API، Vue Router للتنقل بين الصفحات، و vue-i18n للغتين عربي وإنجليزي مع دعم RTL كامل. Build tool بستخدم Vite.</p></div>
-    <div class="key-point"><span class="dot"></span><p><strong>Backend (Node.js + Express.js):</strong> RESTful API على نمط MVC — Models و Controllers و Routes منفصلين. كل endpoint محمي بـ JWT Middleware، والباسوردات متشفرة بـ bcrypt.</p></div>
-    <div class="key-point"><span class="dot"></span><p><strong>Database (MongoDB + Mongoose):</strong> قاعدة بيانات NoSQL. عندي 5 collections رئيسية: patients, doctors, appointments, medical_history, nursing_requests.</p></div>
-    
+      
     </div>
+    
+    <p>Frontend: معمول بـ Vue.js 3 كـ SPA </p>
+    <div class="key-point"><span class="dot"></span><p><strong>Frontend (Vue.js 3):</strong> SPA — Single Page Application — بستخدم Composition API، Vue Router للتنقل بين الصفحات، و vue-i18n للغتين عربي وإنجليزي مع دعم RTL كامل. Build tool بستخدم Vite.</p></div>
+    <br>
+    <p>Backend: معمول بـ Node.js و Express.js كـ RESTful API على نمط MVC. كل request بيعدي على JWT Middleware للتحقق من الهوية، والباسوردات متشفرة باستخدام bcrypt. </p><br>
+    <p>Database: استخدمت MongoDB كـ NoSQL Database، وMongoose كـ ODM للتعامل مع البيانات وربط الـ Schemas بالـ Backend.</p><br>
+    <p> الميزة إن كل طبقة ممكن تتطور أو تتوسع بشكل مستقل.</p>
+  </div>
     <div class="speech doc">
       <div class="speaker doc">👨‍🏫 سؤال محتمل:</div>
       <div class="speech-text">"إيه هو الـ MVC؟ وكيف طبقته؟"</div>
